@@ -1,0 +1,44 @@
+/* ▼ テーブル部分（中間サイズ版） */
+/* ▼ テーブル部分（中間サイズ版） */
+#soubi-table th,
+#soubi-table td {
+  padding: 2px 4px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+
+/* ソート可能列 */
+#soubi-table th.sortable {
+  cursor: pointer;
+  background-color: #f4f4f4;
+  position: relative;
+  padding-right: 16px; /* 矢印のスペース確保 */
+}
+
+/* ▼ 初期表示の矢印（常に表示） */
+#soubi-table th.sortable::after {
+  content: " ▲";          /* ←これで初期から常に▲を表示 */
+  position: absolute;
+  right: 4px;
+  color: #999;
+}
+
+/* ▼ 使用中の列（濃い矢印に差し替え） */
+#soubi-table th.asc::after {
+  content: " ▲";
+  color: #000;
+}
+
+#soubi-table th.desc::after {
+  content: " ▼";
+  color: #000;
+}
+
+/* ▼ 強調表示 */
+#soubi-table th.used {
+  background-color: #d0e6ff;
+  font-weight: bold;
+}

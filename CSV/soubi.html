@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>装備一覧（CSV表示テスト）</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>装備一覧（CSV表示テスト）</h1>
+
+  <div id="info">
+    表示したい優先度・ポジション・装備種類を選ぶと、それ以外は非表示になります。
+  </div>
+
+  <!-- ★ 優先度フィルタ -->
+  <div id="priority-filter" style="margin: 10px 0; padding: 10px; border: 1px solid #ccc;">
+    <strong>表示する優先度：</strong>
+
+    <label><input type="checkbox" value="1" checked>1</label>
+    <label><input type="checkbox" value="2" checked>2</label>
+    <label><input type="checkbox" value="3" checked>3</label>
+  </div>
+
+  <!-- ★ ポジションフィルタ -->
+  <div id="position-filter" style="margin: 10px 0; padding: 10px; border: 1px solid #ccc;">
+    <strong>表示するポジション：</strong>
+
+    <label><input type="checkbox" value="FW" checked>FW</label>
+    <label><input type="checkbox" value="AMF" checked>AMF</label>
+    <label><input type="checkbox" value="DMF" checked>DMF</label>
+    <label><input type="checkbox" value="ADF" checked>ADF</label>
+    <label><input type="checkbox" value="DDF" checked>DDF</label>
+    <label><input type="checkbox" value="GK" checked>GK</label>
+  </div>
+
+  <!-- ★ 装備種類フィルタ -->
+  <div id="type-filter" style="margin: 10px 0; padding: 10px; border: 1px solid #ccc;">
+    <strong>表示する装備種類：</strong>
+
+    <label><input type="checkbox" value="シューズ" checked>シューズ</label>
+    <label><input type="checkbox" value="ミサンガ" checked>ミサンガ</label>
+    <label><input type="checkbox" value="ペンダント" checked>ペンダント</label>
+    <label><input type="checkbox" value="スペシャル" checked>スペシャル</label>
+  </div>
+
+  <!-- ★ リセット + 簡易ソート -->
+  <div id="control-box" style="margin-bottom: 10px; display: flex; gap: 10px;">
+    <button id="reset-sort" class="control-btn">ソートをリセット</button>
+    <button id="quick-sort" class="control-btn">簡易ソート</button>
+  </div>
+
+  <!-- ★ CSV 表 -->
+  <table id="soubi-table" border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
+    <thead></thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
