@@ -1,0 +1,96 @@
+/* ================================
+   ▼ フィルタ配置
+================================ */
+
+/* 上段：優先度 ＋ ポジションを横並び */
+#filter-row-top {
+  display: flex;
+  gap: 12px;
+  margin: 10px 0 6px;
+  flex-wrap: wrap;
+}
+
+/* 下段：装備種類 ＋ ソートボタンを横並び */
+#filter-row-bottom {
+  display: flex;
+  gap: 12px;
+  margin: 0 0 12px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* 各フィルタの枠 */
+.filter-box {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 13px;
+}
+
+/* チェックボックスのラベル間隔 */
+.filter-box label {
+  margin-right: 8px;
+}
+
+/* ソートボタンのまとまり（装備種類の右側） */
+#sort-buttons {
+  display: flex;
+  gap: 8px;          /* ボタン同士の間隔 */
+  align-items: flex-start;
+  padding-top: 10px; /* 装備種類のラベルと高さを少し合わせる用 */
+}
+
+/* ボタンの簡単な見た目調整 */
+.control-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+
+
+/* ================================
+   ▼ テーブル部分（中間サイズ版）
+================================ */
+
+#soubi-table th,
+#soubi-table td {
+  padding: 2px 4px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* ソート可能列 */
+#soubi-table th.sortable {
+  cursor: pointer;
+  background-color: #f4f4f4;
+  position: relative;
+  padding-right: 16px; /* 矢印のスペース確保 */
+}
+
+/* ▼ 初期表示の矢印（常に表示） */
+#soubi-table th.sortable::after {
+  content: " ▲";          /* ←これで初期から常に▲を表示 */
+  position: absolute;
+  right: 4px;
+  color: #999;
+}
+
+/* ▼ 使用中の列（濃い矢印に差し替え） */
+#soubi-table th.asc::after {
+  content: " ▲";
+  color: #000;
+}
+
+#soubi-table th.desc::after {
+  content: " ▼";
+  color: #000;
+}
+
+/* ▼ 強調表示 */
+#soubi-table th.used {
+  background-color: #d0e6ff;
+  font-weight: bold;
+}
