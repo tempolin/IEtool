@@ -64,12 +64,17 @@ let gSortState = {
 };
 
 // --------------------
-// ■ CSV パース
+// ■ CSV パース（★ 各セルを trim するよう修正 ★）
 // --------------------
 function parseCSV(text) {
   const lines = text.replace(/\r\n/g, "\n").trim().split("\n");
-  const headers = lines[0].split(",");
-  const rows = lines.slice(1).map(line => line.split(","));
+
+  const headers = lines[0].split(",").map(h => h.trim());
+
+  const rows = lines.slice(1).map(line =>
+    line.split(",").map(c => c.trim())
+  );
+
   return { headers, rows };
 }
 
@@ -137,11 +142,10 @@ function applySortAndRender() {
   const typeValues = getTypeFilterValues();
 
   // 優先度＆ポジション＆装備種類フィルタ
-  let rows = gOriginalRows.filter(
-    row =>
-      priorityValues.includes(row[PRIORITY_COL]) &&
-      positionValues.includes(row[POSITION_COL]) &&
-      typeValues.includes(row[TYPE_COL])
+  let rows = gOriginalRows.filter(row =>
+    priorityValues.includes(row[PRIORITY_COL]) &&
+    positionValues.includes(row[POSITION_COL]) &&
+    typeValues.includes(row[TYPE_COL])
   );
 
   const keys = gSortState.keys;
